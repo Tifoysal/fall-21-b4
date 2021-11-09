@@ -11,7 +11,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
 
-
     <!-- Bootstrap core CSS -->
     <link href="{{url('/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -53,17 +52,15 @@
 
 <div class="container-fluid">
     <div class="row">
-@include('admin.fixed.sidebar')
+        @include('admin.fixed.sidebar')
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-            </div>
+
             <div class="table-responsive">
 
-{{--         contents goes here--}}
+                {{--         contents goes here--}}
 
-
+                @yield('content')
 
             </div>
         </main>
@@ -71,10 +68,10 @@
 </div>
 
 
-<script src="https://getbootstrap.com/docs/5.1/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://getbootstrap.com/docs/5.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="https://getbootstrap.com/docs/5.1/examples/dashboard/dashboard.js"></script>
 </body>
 </html>

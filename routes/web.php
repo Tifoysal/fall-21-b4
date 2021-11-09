@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('master');
+    return redirect()->route('dashboard');
 });
 
-Route::get('/admin/orders',[OrderController::class,'orderList']);
+
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('/',[HomeController::class,'dashboard'])->name('dashboard');
+    Route::get('/orders',[OrderController::class,'orderList'])->name('admin.order.list');
+    Route::get('/products',[ProductController::class,'productList'])->name('admin.product.list');
+    Route::get('/create/product',[ProductController::class,'create'])->name('product.create');
+});
 
 
 
