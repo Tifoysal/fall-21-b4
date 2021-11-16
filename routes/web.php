@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,11 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/products',[ProductController::class,'productList'])->name('admin.product.list');
     Route::get('/create/product',[ProductController::class,'create'])->name('product.create');  
     Route::post('/product/store',[ProductController::class,'store'])->name('admin.product.store');
+
+    // employee
+    Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
+    Route::get('/employee/form',[EmployeeController::class,'form'])->name('employee.create');
+    Route::post('/employee/add',[EmployeeController::class,'store'])->name('employee.add');
 });
 
 
