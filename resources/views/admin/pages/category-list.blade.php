@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h1>Product List</h1>
+    <h1>Category List</h1>
 
 
 <div class="row">
@@ -9,7 +9,7 @@
 
     </div>
     <div class="col-md-6">
-        <a href="{{route('product.create')}}" class="btn btn-primary">Create Product</a>
+        <a href="{{route('admin.category.form')}}" class="btn btn-primary">Create Category</a>
     </div>
 
 </div>
@@ -19,17 +19,15 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">name</th>
-            <th scope="col">price</th>
-            <th scope="col">category</th>
+            <th scope="col">details</th>
         </tr>
         </thead>
         <tbody>
-            @foreach ($products as $key=>$product)
+            @foreach ($categories as $key=>$category)
                 <tr>
             <th>{{$key+1}}</th>
-            <td>{{$product->name}}</td>
-            <td>{{$product->price}}</td>
-            <td>{{$product->category->name}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->details}}</td>
         </tr>
             @endforeach
         

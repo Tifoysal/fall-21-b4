@@ -14,6 +14,17 @@
             <input name="price" placeholder="Enter Product Price" type="number" class="form-control" id="">
         </div>
 
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Product Category</label>
+            <select name="category" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            
+            
+            </select>
+        </div>
+
         <div class="mb-3">
             <label for="" class="form-label">Product Price</label>
             <input name="picture" placeholder="Enter Product Price" type="file" class="form-control" id="">

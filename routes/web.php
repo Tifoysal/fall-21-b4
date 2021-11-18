@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
@@ -28,6 +29,11 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/products',[ProductController::class,'productList'])->name('admin.product.list');
     Route::get('/create/product',[ProductController::class,'create'])->name('product.create');  
     Route::post('/product/store',[ProductController::class,'store'])->name('admin.product.store');
+
+    // category
+    Route::get('/category/list',[CategoryController::class,'list'])->name('admin.category.list');
+    Route::get('/category/form',[CategoryController::class,'categoryForm'])->name('admin.category.form');
+    Route::post('/category/add',[CategoryController::class,'categoryadd'])->name('category.add');
 
     // employee
     Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
