@@ -11,7 +11,9 @@ class ProductController extends Controller
 {
     public function productList()
     {
+
         $products = Product::with('category')->get();
+//        dd($products);
         return view('admin.pages.product-list',compact('products'));
     }
 
@@ -31,6 +33,6 @@ class ProductController extends Controller
             'price'=>$request->price,
             'category_id'=>$request->category
         ]);
-         return redirect()->back();
+         return redirect()->back()->with('msg','Product Created Successfully.');
     }
 }

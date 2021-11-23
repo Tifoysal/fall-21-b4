@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function list(){
+
         $categories = Category::all();
+
         return view('admin.pages.category-list',compact('categories'));
     }
 
@@ -18,13 +20,14 @@ class CategoryController extends Controller
     }
 
     public function categoryadd(Request $request){
-        // dd($request->all());
+//         dd($request->all());
+//        database column name||input field er name
         Category::create([
             'name'=>$request->name,
-            'details'=>$request->details
+            'details'=>$request->details,
         ]);
-        return redirect()->back();
-        
+        return redirect()->back()->with('msg','Category created successfully.');
+
 
     }
 }

@@ -32,8 +32,8 @@
             <td>{{$product->category->name}}</td>
         </tr>
             @endforeach
-        
-        
+
+
         </tbody>
     </table>
 

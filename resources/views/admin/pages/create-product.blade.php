@@ -3,6 +3,10 @@
 @section('content')
     <h1>Create Product</h1>
 
+    @if(session()->has('msg'))
+        <p class="alert alert-success">{{session()->get('msg')}}</p>
+    @endif
+
     <form action="{{route('admin.product.store')}}" method="POST">
         @csrf
         <div class="mb-3">
@@ -20,8 +24,8 @@
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
-            
-            
+
+
             </select>
         </div>
 
