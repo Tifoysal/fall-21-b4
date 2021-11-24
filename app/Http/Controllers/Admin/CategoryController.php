@@ -20,7 +20,11 @@ class CategoryController extends Controller
     }
 
     public function categoryadd(Request $request){
-//         dd($request->all());
+        //  dd($request->all());
+        $request->validate([
+            'name'=>'required',
+            'details'=>'required'
+        ]);
 //        database column name||input field er name
         Category::create([
             'name'=>$request->name,
