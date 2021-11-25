@@ -7,7 +7,7 @@
         <p class="alert alert-success">{{session()->get('msg')}}</p>
     @endif
 
-    <form action="{{route('admin.product.store')}}" method="POST">
+    <form action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Product Name</label>
@@ -30,8 +30,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="" class="form-label">Product Price</label>
-            <input name="picture" placeholder="Enter Product Price" type="file" class="form-control" id="">
+            <label for="" class="form-label">Product image</label>
+            <input name="image" placeholder="Enter Product Price" type="file" class="form-control" id="">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

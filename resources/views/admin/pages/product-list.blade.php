@@ -19,15 +19,18 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">name</th>
+            <th scope="col">image</th>
             <th scope="col">price</th>
             <th scope="col">category</th>
         </tr>
         </thead>
         <tbody>
+            {{-- @dd($products) --}}
             @foreach ($products as $key=>$product)
                 <tr>
             <th>{{$key+1}}</th>
             <td>{{$product->name}}</td>
+            <td><img src="{{url('/uploades/'.$product->image)}}" width="100px" alt="product image"></td>
             <td>{{$product->price}}</td>
             <td>{{$product->category->name}}</td>
         </tr>
