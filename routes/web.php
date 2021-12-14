@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\Website\HomeController as WebsiteHomeController;
+use App\Http\Controllers\Website\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +21,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+
+Route::get('/',[WebsiteHomeController::class,'home'])->name('frontend.home');
+Route::post('/user/registration',[UserController::class,'registration'])->name('user.registration');
+Route::post('/user/login',[UserController::class,'userlogin'])->name('user.do.login');
+Route::get('/user/logout',[UserController::class,'userlogout'])->name('user.logout');
+
+
+
+//backend
+// Route::get('/', function () {
+//     return redirect()->route('dashboard');
+// });
 
 
 Route::group(['prefix'=>'admin'],function (){
@@ -39,6 +51,9 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/employee/list',[EmployeeController::class,'list'])->name('employee.list');
     Route::get('/employee/form',[EmployeeController::class,'form'])->name('employee.create');
     Route::post('/employee/add',[EmployeeController::class,'store'])->name('employee.add');
+
+    //admin panel user
+    Route::get('/user/list',[AdminUserController::class,'userlist'])->name('admin.user.list');
 });
 
 
